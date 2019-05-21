@@ -19,7 +19,9 @@
 
             <% for(let i = 0; i < persons.length; i++) { %>
             <li>
-                <%= persons[i] %>
+                <a href="applicant/<%= i %>">
+                    <%= persons[i] %>
+                </a>
             </li>
             <% } %>
 
