@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 
 // default request
 app.get('/', function(req, res) {
-    res.render('applicant');
+    res.render('index');
 });
 
 // listen to port
