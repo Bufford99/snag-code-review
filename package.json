@@ -1,0 +1,25 @@
+{
+  "name": "snag-code-review",
+  "version": "1.0.0",
+  "description": "Snag's Web Development Code Review Assignment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bufford99/snag-code-review.git"
+  },
+  "keywords": [
+    "snag"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bufford99/snag-code-review/issues"
+  },
+  "homepage": "https://github.com/Bufford99/snag-code-review#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
