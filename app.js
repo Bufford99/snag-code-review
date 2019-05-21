@@ -20,6 +20,13 @@ app.get('/', function (req, res) {
     res.render('index', {persons: names});
 });
 
+// request to view application info of an applicant
+app.get('/applicant/:id', function (req, res) {
+    var id = req.params.id;
+
+    res.send(id);
+});
+
 // listen to port
 app.listen(4000, function () {
     console.log('Listening to port 4000');
