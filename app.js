@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
     var obj = JSON.parse(JSON.stringify(data));
 
     // retrieve applicant names
-    var names = getNames(jbj);
+    var names = getNames(obj);
 
     res.render('index');
 });
