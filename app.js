@@ -8,11 +8,18 @@ var app = express();
 app.set('view engine', 'ejs');
 
 // default request
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
+
+    // convert JSON data to JS object
+    var obj = JSON.parse(JSON.stringify(data));
+
+    // retrieve applicant names
+    var names = getNames(jbj);
+
     res.render('index');
 });
 
 // listen to port
-app.listen(4000, function() {
+app.listen(4000, function () {
     console.log('Listening to port 4000');
 });
