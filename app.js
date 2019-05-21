@@ -9,4 +9,7 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(4000);
+// listen to port
+app.listen(4000, function() {
+    console.log('Listening to port 4000');
+});
