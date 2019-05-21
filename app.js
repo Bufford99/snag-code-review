@@ -1,6 +1,10 @@
 const express = require('express');
 const data = require(__dirname + '/applications.json'); // retrieve JSON data from file
 
+// convert JSON data to JS object
+var obj = JSON.parse(JSON.stringify(data));
+
+
 // set up creation of server
 var app = express();
 
@@ -9,9 +13,6 @@ app.set('view engine', 'ejs');
 
 // default request
 app.get('/', function (req, res) {
-
-    // convert JSON data to JS object
-    var obj = JSON.parse(JSON.stringify(data));
 
     // retrieve applicant names
     var names = getNames(obj);
@@ -22,9 +23,11 @@ app.get('/', function (req, res) {
 
 // request to view application info of an applicant
 app.get('/applicant/:id', function (req, res) {
+    
+    // applicant id
     var id = req.params.id;
 
-    res.send(id);
+    res.render('applicant', {applicant: obj[id]});
 });
 
 // listen to port
