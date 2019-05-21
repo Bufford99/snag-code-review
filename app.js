@@ -16,6 +16,7 @@ app.get('/', function (req, res) {
     // retrieve applicant names
     var names = getNames(obj);
 
+    // render view as ejs
     res.render('index');
 });
 
@@ -23,3 +24,25 @@ app.get('/', function (req, res) {
 app.listen(4000, function () {
     console.log('Listening to port 4000');
 });
+
+
+/**
+ * Retrieve each applicants name from JS object
+ * @param {..Object} obj - JS object whose data was parsed from JSON file
+ * @return {string} - String array of applicant names 
+ */
+function getNames(obj) {
+
+    // create empty array
+    var names = [];
+
+    // number of keys (applicants)
+    var keyLength = Object.keys(obj).length;
+
+    // add each applicant name to array
+    for(let i = 0; i < keyLength; i++) {
+        names.push(obj[i].name);
+    }
+
+    return names;
+}
