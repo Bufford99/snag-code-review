@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
     var names = getNames(obj);
 
     // render view as ejs
-    res.render('index');
+    res.render('index', {persons: names});
 });
 
 // listen to port
