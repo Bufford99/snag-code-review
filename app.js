@@ -14,6 +14,9 @@ app.set('view engine', 'ejs');
 // default request
 app.get('/', function (req, res) {
 
+    // retrieve query strings
+    var query = req.query;
+
     // retrieve applicant names
     var names = getNames(obj);
 
