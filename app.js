@@ -41,7 +41,7 @@ app.listen(4000, function () {
 
 /**
  * Retrieve each applicants name from JS object
- * @param {..Object} obj - JS object whose data was parsed from JSON file
+ * @param {Object} obj - JS object whose data was parsed from JSON file
  * @param {string} sortBy - sort option for arranging the order of applicants
  * @param {string} filterBy - filter option for retrieving specific applicants
  * @return {string[]} - String array of applicant names 
@@ -64,8 +64,14 @@ function getNames(obj, sortBy, filterBy) {
     return names;
 }
 
+/**
+ * Sorts the applicants based on the selected sort option
+ * @param {Object} obj - JS object whose data was parsed from JSON file
+ * @param {string} sortBy - sort option for arranging the order of applicants
+ */
 function sortApplicants(obj, sortBy) {
 
+    // sort by last name (order: alphabetical)
     if(sortBy === 'name') {
         obj.sort(function (a, b) {
             var aLastName = a.name.substring(a.name.indexOf(' ') + 1);
@@ -82,6 +88,8 @@ function sortApplicants(obj, sortBy) {
             }
         });
     }
+    
+    // sort by date of application (order: earliest to latest)
     else if(sortBy === 'date-applied') {
         obj.sort(function (a, b) {
             var aDate = new Date(a.applied);
@@ -98,6 +106,8 @@ function sortApplicants(obj, sortBy) {
             }
         });
     }
+
+    // sort by experience in years (order: descending)
     else if(sortBy === 'experience') {
         obj.sort(function (a, b) {
             var aExperience = a.experience;
@@ -114,7 +124,7 @@ function sortApplicants(obj, sortBy) {
             }
         });
 
-        // descending order
+        // make it descending order
         obj.reverse();
     }
     
