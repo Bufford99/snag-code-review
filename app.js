@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     var query = req.query;
 
     // retrieve applicant names
-    var names = getNames(obj);
+    var names = getNames(obj, query.sort, query.filter);
 
     // render view as ejs
     res.render('index', {persons: names});
@@ -42,9 +42,11 @@ app.listen(4000, function () {
 /**
  * Retrieve each applicants name from JS object
  * @param {..Object} obj - JS object whose data was parsed from JSON file
- * @return {string} - String array of applicant names 
+ * @param {string} sortBy - sort option for arranging the order of applicants
+ * @param {string} filterBy - filter option for retrieving specific applicants
+ * @return {string[]} - String array of applicant names 
  */
-function getNames(obj) {
+function getNames(obj, sortBy, filterBy) {
 
     // create empty array
     var names = [];
