@@ -37,17 +37,28 @@
         </div>
 
         <script>
+            
+            // sends get request based on selected sort and filter options
             function updateResults() {
+
+                // selected value for sort
                 var selectedSort = document.getElementById('sort-results').value;
+
+                // selected value for filter
                 var selectedFilter = document.getElementById('filter-results').value;
 
+                // append current URL with query string separator
                 var url = document.URL + '?';
 
+                // append sort string if value was selected
                 if(selectedSort !== '') {
                     url += 'sort=' + selectedSort;
                 }
 
+                // append filter string if value was selected
                 if(selectedFilter !== '') {
+
+                    // append string separator if a sort value was selected
                     if(url[url.length-1] !== '?') {
                         url += '&';
                     }
@@ -55,6 +66,7 @@
                     url += 'filter=' + selectedFilter;
                 }
 
+                // send get request if values for at least one option (sort/filter) were selected
                 if(url[url.length-1] !== '?') {
                     window.location.href = url;
                 }
