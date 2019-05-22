@@ -17,7 +17,7 @@
     <div class="sort-and-filter">
 
         <div class="select-header">Sort By</div>
-        <select name="sort-results">
+        <select id="sort-results">
             <option value="">---</option>
             <option value="name">Last name</option>
             <option value="date-applied">Date applied</option>
@@ -25,7 +25,7 @@
         </select>
 
         <div class="select-header">Filter</div>
-        <select name="filter-results">
+        <select id="filter-results">
             <option value="">---</option>
             <option value="position">Position</option>
             <option value="date-applied">Date applied</option>
@@ -35,6 +35,31 @@
         <div class="button">
             <button onclick="updateResults()">Apply Changes</button>
         </div>
+
+        <script>
+            function updateResults() {
+                var selectedSort = document.getElementById('sort-results').value;
+                var selectedFilter = document.getElementById('filter-results').value;
+
+                var url = document.URL + '?';
+
+                if(selectedSort !== '') {
+                    url += 'sort=' + selectedSort;
+                }
+
+                if(selectedFilter !== '') {
+                    if(url[url.length-1] !== '?') {
+                        url += '&';
+                    }
+
+                    url += 'filter=' + selectedFilter;
+                }
+
+                if(url[url.length-1] !== '?') {
+                    window.location.href = url;
+                }
+            }
+        </script>
 
     </div>
 
