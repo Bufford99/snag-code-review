@@ -1,5 +1,5 @@
 const express = require('express');
-const data = require(__dirname + '/applications.json'); // retrieve JSON data from file
+var data = require(__dirname + '/applications.json'); // retrieve JSON data from file
 
 // convert JSON data to JS object
 var obj = JSON.parse(JSON.stringify(data));
@@ -36,11 +36,14 @@ app.get('/applicant/:id', function (req, res) {
 // request to view favourited/bookmarked applicants
 app.get('/favourites', function (req, res) {
 
-    // retrieve query strings
-    var query = req.query;
+    // retrieve favourited applicants from favourites.json file
+    data = require(__dirname + '/favourites.json');
+
+    // convert to JS object
+    obj = JSON.parse(JSON.stringify(data));
 
     // retrieve applicant names
-    var names = getNames(obj, query.sort, query.filter);
+    var names = getFavourites(obj);
 
     // render view as ejs
     res.render('favourites', { persons: names });
@@ -141,4 +144,9 @@ function sortApplicants(obj, sortBy) {
         obj.reverse();
     }
 
+}
+
+function getFavourites(obj) {
+
+    return getNames(obj, undefined, undefined);
 }
