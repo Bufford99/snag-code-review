@@ -21,6 +21,23 @@
             <li>Position applied to: <%= applicant.position %></li>
             <li>Date of application: <%= applicant.applied %></li>
             <li>Experience: <%= applicant.experience %> years</li>
+            <li>Availability:
+                <ul>
+                    <li>Monday: <%= applicant.availability.M %></li>
+                    <li>Tuesday: <%= applicant.availability.T %></li>
+                    <li>Wednesday: <%= applicant.availability.W %></li>
+                    <li>Thursday: <%= applicant.availability.Th %></li>
+                    <li>Friday: <%= applicant.availability.F %></li>
+                    <li>Saturday: <%= applicant.availability.S %></li>
+                    <li>Sunday: <%= applicant.availability.Su %></li>
+                </ul>
+            </li>
+            <li>Questions:
+                <ul>
+                    <li>Text: <%= applicant.questions[0].text %></li>
+                    <li>Answer: <%= applicant.questions[0].answer %></li>
+                </ul>
+            </li>
 
         </ul>
 
