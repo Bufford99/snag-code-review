@@ -53,8 +53,10 @@
                 </li>
                 <li>Questions:
                     <ul>
-                        <li>Text: <%= applicant.questions[0].text %></li>
-                        <li>Answer: <%= applicant.questions[0].answer %></li>
+                        <% for(let i = 0; i < applicant.questions.length; i++) { %>
+                        <li><%= applicant.questions[i].text %></li>
+                        <li style="text-indent: 20px"><%= applicant.questions[i].answer %></li>
+                        <% } %>
                     </ul>
                 </li>
 
