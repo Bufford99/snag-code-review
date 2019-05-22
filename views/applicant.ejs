@@ -7,11 +7,25 @@
 </head>
 
 <body>
-    <div class="container">
 
-        <h2>Application of <%= applicant.name %></h2>
+    <h2>Application of <%= applicant.name %></h2>
 
+    <div class="button">
+        <button id="button-favourite" style="background-color: lightgray" onclick="favourite()">Favourite</button>
     </div>
+    <script>
+        function favourite() {
+            var button = document.getElementById('button-favourite');
+
+            if (button.style.backgroundColor === 'lightgray') {
+                button.style.backgroundColor = 'yellow';
+            }
+
+            else {
+                button.style.backgroundColor = 'lightgray';
+            }
+        }
+    </script>
 
     <div class="applicant-info">
 
