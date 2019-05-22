@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Favourites</title>
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <% include partials/nav.ejs %>
+
+    <div class="container">
+        <h2>Favourited Applications</h2>
+
+        <!-- List of applicants-->
+        <div class="names-list">
+
+            <ul>
+
+                <% for(let i = 0; i < persons.length; i++) { %>
+                <li>
+                    <a href="applicant/<%= i %>">
+                        <%= persons[i] %>
+                    </a>
+                </li>
+                <% } %>
+
+            </ul>
+
+        </div>
+    </div>
+</body>
+
+</html>

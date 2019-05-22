@@ -4,43 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <title><%= applicant.name %></title>
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+
+    <% include partials/nav.ejs %>
+
     <div class="container">
 
         <h2>Application of <%= applicant.name %></h2>
 
-    </div>
+        <div class="button">
+            <button id="button-favourite" style="background-color: lightgray" onclick="favourite()">Favourite</button>
+        </div>
+        <script>
+            function favourite() {
+                var button = document.getElementById('button-favourite');
 
-    <div class="applicant-info">
+                if (button.style.backgroundColor === 'lightgray') {
+                    button.style.backgroundColor = 'yellow';
+                }
 
-        <ul>
+                else {
+                    button.style.backgroundColor = 'lightgray';
+                }
+            }
+        </script>
 
-            <li>Application ID: <%= applicant.id %></li>
-            <li>Position applied to: <%= applicant.position %></li>
-            <li>Date of application: <%= applicant.applied %></li>
-            <li>Experience: <%= applicant.experience %> years</li>
-            <li>Availability:
-                <ul>
-                    <li>Monday: <%= applicant.availability.M %></li>
-                    <li>Tuesday: <%= applicant.availability.T %></li>
-                    <li>Wednesday: <%= applicant.availability.W %></li>
-                    <li>Thursday: <%= applicant.availability.Th %></li>
-                    <li>Friday: <%= applicant.availability.F %></li>
-                    <li>Saturday: <%= applicant.availability.S %></li>
-                    <li>Sunday: <%= applicant.availability.Su %></li>
-                </ul>
-            </li>
-            <li>Questions:
-                <ul>
-                    <li>Text: <%= applicant.questions[0].text %></li>
-                    <li>Answer: <%= applicant.questions[0].answer %></li>
-                </ul>
-            </li>
+        <div class="applicant-info">
 
-        </ul>
+            <ul>
 
+                <li>Application ID: <%= applicant.id %></li>
+                <li>Position applied to: <%= applicant.position %></li>
+                <li>Date of application: <%= applicant.applied %></li>
+                <li>Experience: <%= applicant.experience %> years</li>
+                <li>Availability:
+                    <ul>
+                        <li>Monday: <%= applicant.availability.M %></li>
+                        <li>Tuesday: <%= applicant.availability.T %></li>
+                        <li>Wednesday: <%= applicant.availability.W %></li>
+                        <li>Thursday: <%= applicant.availability.Th %></li>
+                        <li>Friday: <%= applicant.availability.F %></li>
+                        <li>Saturday: <%= applicant.availability.S %></li>
+                        <li>Sunday: <%= applicant.availability.Su %></li>
+                    </ul>
+                </li>
+                <li>Questions:
+                    <ul>
+                        <li>Text: <%= applicant.questions[0].text %></li>
+                        <li>Answer: <%= applicant.questions[0].answer %></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
     </div>
 </body>
 
