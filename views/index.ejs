@@ -13,24 +13,77 @@
 
     </div>
 
+    <!-- Sorting and filtering -->
     <div class="sort-and-filter">
 
-        <select name="sort-results">
-            <option value="">Sort by</option>
+        <div class="select-header">Sort By</div>
+        <select id="sort-results">
+            <option value="">---</option>
             <option value="name">Last name</option>
             <option value="date-applied">Date applied</option>
             <option value="experience">Experience</option>
         </select>
 
-        <select name="filter-results">
-            <option value="">Filter</option>
+        <div class="select-header">Filter</div>
+        <select id="filter-results">
+            <option value="">---</option>
             <option value="position">Position</option>
             <option value="date-applied">Date applied</option>
             <option value="experience">Experience</option>
         </select>
 
+        <div class="button">
+            <button onclick="updateResults()">Apply Changes</button>
+        </div>
+        <script>
+
+            // sends get request based on selected sort and filter options
+            function updateResults() {
+
+                // selected value for sort
+                var selectedSort = document.getElementById('sort-results').value;
+
+                // selected value for filter
+                var selectedFilter = document.getElementById('filter-results').value;
+
+                // append current URL with query string separator
+                var url = document.URL.split('?')[0] + '?'; // split function clears existing query strings
+
+                // append sort string if value was selected
+                if (selectedSort !== '') {
+                    url += 'sort=' + selectedSort;
+                }
+
+                // append filter string if value was selected
+                if (selectedFilter !== '') {
+
+                    // append string separator if a sort value was selected
+                    if (url[url.length - 1] !== '?') {
+                        url += '&';
+                    }
+
+                    url += 'filter=' + selectedFilter;
+                }
+
+                // send get request if values for at least one option (sort/filter) were selected
+                if (url[url.length - 1] !== '?') {
+                    window.location.href = url;
+                }
+            }
+        </script>
+
+        <div class="button">
+            <button onclick="resetResults()">Discard Changes</button>
+        </div>
+        <script>
+            function resetResults() {
+                window.location.href = document.URL.split('?')[0];
+            }
+        </script>
+
     </div>
 
+    <!-- List of applicants-->
     <div class="names-list">
 
         <ul>
