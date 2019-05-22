@@ -35,9 +35,8 @@
         <div class="button">
             <button onclick="updateResults()">Apply Changes</button>
         </div>
-
         <script>
-            
+
             // sends get request based on selected sort and filter options
             function updateResults() {
 
@@ -51,15 +50,15 @@
                 var url = document.URL.split('?')[0] + '?'; // split function clears existing query strings
 
                 // append sort string if value was selected
-                if(selectedSort !== '') {
+                if (selectedSort !== '') {
                     url += 'sort=' + selectedSort;
                 }
 
                 // append filter string if value was selected
-                if(selectedFilter !== '') {
+                if (selectedFilter !== '') {
 
                     // append string separator if a sort value was selected
-                    if(url[url.length-1] !== '?') {
+                    if (url[url.length - 1] !== '?') {
                         url += '&';
                     }
 
@@ -67,9 +66,18 @@
                 }
 
                 // send get request if values for at least one option (sort/filter) were selected
-                if(url[url.length-1] !== '?') {
+                if (url[url.length - 1] !== '?') {
                     window.location.href = url;
                 }
+            }
+        </script>
+
+        <div class="button">
+            <button onclick="resetResults()">Discard Changes</button>
+        </div>
+        <script>
+            function resetResults() {
+                window.location.href = document.URL.split('?')[0];
             }
         </script>
 
