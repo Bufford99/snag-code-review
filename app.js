@@ -48,6 +48,8 @@ app.listen(4000, function () {
  */
 function getNames(obj, sortBy, filterBy) {
 
+    sortApplicants(obj, sortBy);
+
     // create empty array
     var names = [];
 
@@ -60,4 +62,60 @@ function getNames(obj, sortBy, filterBy) {
     }
 
     return names;
+}
+
+function sortApplicants(obj, sortBy) {
+
+    if(sortBy === 'name') {
+        obj.sort(function (a, b) {
+            var aLastName = a.name.substring(a.name.indexOf(' ') + 1);
+            var bLastName = b.name.substring(b.name.indexOf(' ') + 1);
+
+            if(aLastName < bLastName) {
+                return -1;
+            }
+            else if(aLastName > bLastName) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        });
+    }
+    else if(sortBy === 'date-applied') {
+        obj.sort(function (a, b) {
+            var aDate = new Date(a.applied);
+            var bDate = new Date(b.applied);
+
+            if(aDate.getTime() < bDate.getTime()) {
+                return -1;
+            }
+            else if(aDate.getTime() > bDate.getTime()) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        });
+    }
+    else if(sortBy === 'experience') {
+        obj.sort(function (a, b) {
+            var aExperience = a.experience;
+            var bExperience = b.experience;
+
+            if(aExperience < bExperience) {
+                return -1;
+            }
+            else if(aExperience > bExperience) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        });
+
+        // descending order
+        obj.reverse();
+    }
+    
 }
