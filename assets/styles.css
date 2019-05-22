@@ -1,0 +1,100 @@
+body {
+    background-color: aliceblue;
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 32px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.sidebar {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar li {
+    float: left;
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.container {
+    margin-top: 140px;
+    padding: 0px 10px;
+}
+
+.select-header {
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+#sort-results {
+    padding: 8px;
+    margin: 8px;
+}
+
+#filter-results {
+    padding: 8px;
+    margin: 8px;
+}
+
+.sort-and-filter {
+    font-size: 18px;
+}
+
+button {
+    padding: 12px;
+    background-color: #4169E1;
+    color: white;
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: bold;
+}
+
+.names-list {
+    font-family: 'Gill Sans', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.names-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.names-list a:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+.names-list li {
+    padding: 10px;
+}
+
+.applicant-info {
+    font-size: 18px;
+    font-family: 'Gill Sans', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.applicant-info li {
+    margin-top: 10px;
+}

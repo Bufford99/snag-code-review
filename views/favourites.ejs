@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Favourites</title>
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -12,23 +13,23 @@
 
     <div class="container">
         <h2>Favourited Applications</h2>
-    </div>
 
-    <!-- List of applicants-->
-    <div class="names-list">
+        <!-- List of applicants-->
+        <div class="names-list">
 
-        <ul>
+            <ul>
 
-            <% for(let i = 0; i < persons.length; i++) { %>
-            <li>
-                <a href="applicant/<%= i %>">
-                    <%= persons[i] %>
-                </a>
-            </li>
-            <% } %>
+                <% for(let i = 0; i < persons.length; i++) { %>
+                <li>
+                    <a href="applicant/<%= i %>">
+                        <%= persons[i] %>
+                    </a>
+                </li>
+                <% } %>
 
-        </ul>
+            </ul>
 
+        </div>
     </div>
 </body>
 

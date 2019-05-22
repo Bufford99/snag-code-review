@@ -8,8 +8,11 @@ var obj = JSON.parse(JSON.stringify(data));
 // set up creation of server
 var app = express();
 
-// use template engine
+// use ejs template engine
 app.set('view engine', 'ejs');
+
+// use css file for styling
+app.use('/assets', express.static('assets'));
 
 // default request
 app.get('/', function (req, res) {
